@@ -1,0 +1,8 @@
+{
+  "package": "recall_box",
+  "name": "Recall Box",
+  "homepage": "https://github.com/spencerjamesstewart/anki-active-recall",
+  "conflicts": [],
+  "min_point_version": 231000,
+  "human_version": "1.0.0"
+}
