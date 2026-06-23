@@ -48,15 +48,18 @@ def _question_html() -> str:
             autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
 </div>
 <style>
-  #recallbox-wrap { max-width: 560px; margin: 14px auto 0; }
+  /* Pin to the template container's 16px base (see anki-template-engine
+     front()/back()); our box renders outside that container, so without this
+     the em-based sizes resolve against Anki's larger .card base and balloon. */
+  #recallbox-wrap { max-width: 560px; margin: 14px auto 0; font-size: 16px; }
   #recallbox-textarea {
     width: 100%;
     box-sizing: border-box;
     min-height: 4.5em;
     padding: 10px 12px;
     font-family: Georgia, serif;
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.95em;
+    line-height: 1.6;
     color: #dddddd;
     background: #2a2a2a;
     border: 1px solid #444;
@@ -162,11 +165,17 @@ def _answer_html(typed: str) -> str:
 </div>
 <style>
   #recallbox-yours {
+    box-sizing: border-box;
     max-width: 560px;
     margin: 10px auto;
     padding: 12px 14px;
     text-align: left;
     font-family: Georgia, serif;
+    /* Match the template container: 16px base (see anki-template-engine
+       front()/back()). border-box keeps the box at 560px total to line up
+       with the template's callouts instead of 560 + padding + border. */
+    font-size: 16px;
+    line-height: 1.6;
     color: #dddddd;
     background: #2a2a2a;
     border: 1px solid #444;
@@ -182,8 +191,8 @@ def _answer_html(typed: str) -> str:
     margin-bottom: 6px;
   }
   #recallbox-yours .recallbox-body {
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.95em;
+    line-height: 1.6;
     white-space: pre-wrap;
     word-break: break-word;
   }
