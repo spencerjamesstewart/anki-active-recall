@@ -3,3 +3,4 @@ __pycache__/
 *.ankiaddon
 meta.json
 .DS_Store
+.memory-updates
